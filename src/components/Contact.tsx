@@ -2,7 +2,7 @@ import React from "react";
 
 const Contact = ({ gitHubUrl, linkedInUrl, email, linkCV, theme }: { gitHubUrl: string | undefined; linkedInUrl: string | undefined; email: string | undefined; linkCV: string | undefined; theme: "light" | "dark" }) => {
   return (
-    <div id="contact" className={theme === "light" ? "w-screen h-screen bg-gradient-to-r from-[#3378ff] to-[#9442fe] pt-32" : "w-screen h-screen bg-slate-700 pt-32"}>
+    <div id="contact" className={theme === "light" ? "w-screen h-screen bg-gradient-to-r from-[#3378ff] to-[#9442fe] pt-20 md:pt-32" : "w-screen h-screen bg-slate-700 pt-20 md:pt-32"}>
       <div className="flex flex-col space-y-3 items-center md:flex-row justify-center mt-40 md:space-x-7">
         <a href={gitHubUrl} target="_blank" rel="noreferrer">
           <svg className="h-20 w-20 md:h-28 md:w-28 fill-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
