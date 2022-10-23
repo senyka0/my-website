@@ -34,7 +34,7 @@ const Navbar = ({ theme, handleThemeSwitch }: { theme: "light" | "dark"; handleT
             </li>
           </ul>
           <div className="absolute right-3">
-            <button type="button" onClick={handleThemeSwitch} className=" bg-slate-700 text-lg p-1 rounded-md">
+            <button type="button" onClick={handleThemeSwitch} className=" bg-transparent text-lg p-1 rounded-md">
               {theme === "dark" ? "🌙" : "🌞"}
             </button>
           </div>
