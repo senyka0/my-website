@@ -2,7 +2,7 @@ import React from "react";
 
 const Skills = ({ skills, theme }: { skills: string[] | undefined; theme: "light" | "dark" }) => {
   return (
-    <div id="skills" className={theme === "light" ? "w-screen h-screen  bg-gradient-to-r from-[#3378ff] to-[#9442fe] pt-40 text-gray-300" : "w-screen h-screen bg-slate-700 pt-52 text-gray-300"}>
+    <div id="skills" className={theme === "light" ? "w-screen h-screen  bg-gradient-to-r from-[#3378ff] to-[#9442fe] pt-40 text-gray-300" : "w-screen h-screen bg-slate-700 pt-40 text-gray-300"}>
       <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 text-center py-8 px-10">
         {skills?.map((item) => {
           return (
