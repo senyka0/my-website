@@ -1,0 +1,96 @@
+{
+  "cv": {
+    "name": "Arsenii",
+    "surname": "Koniachenko",
+    "position": "Full-Stack Blockchain Developer",
+    "skills": [
+      "python",
+      "nodejs",
+      "solidity",
+      "typescript",
+      "react",
+      "nextjs",
+      "fastapi",
+      "express",
+      "postgresql",
+      "mongodb",
+      "docker",
+      "git"
+    ],
+    "gitHubUrl": "https://github.com/senyka0",
+    "linkedInUrl": "https://www.linkedin.com/in/arsenii-koniachenko-1178811ba/",
+    "email": "arsk293@gmail.com",
+    "bio": "I am a full-stack developer with a passion for building decentralized applications and trading systems. Skilled in blockchain, backend, and frontend technologies, I'm a fast learner dedicated to writing clean, scalable code and constantly improving my skills.",
+    "location": "Loutraki, Greece",
+    "projects": [
+      {
+        "name": "My website",
+        "description": "A fully decentralized portfolio website with data stored on IPFS and smart contract on Base Sepolia",
+        "githubUrl": "https://github.com/senyka0/my-website",
+        "technologies": [
+          "React",
+          "TypeScript",
+          "TailwindCSS",
+          "React Query",
+          "Zustand",
+          "IPFS",
+          "ethers.js",
+          "Hardhat",
+          "Solidity"
+        ],
+        "liveUrl": "https://senyka0.github.io/my-website/"
+      },
+      {
+        "name": "Hedge fund landing",
+        "description": "A landing page for a hedge fund with chart and live metrics",
+        "githubUrl": "https://github.com/senyka0/hedge-fund-landing",
+        "technologies": ["Next.js", "TypeScript", "TailwindCSS", "tremor"],
+        "liveUrl": "https://senyka0.github.io/hedge-fund-landing"
+      },
+      {
+        "name": "Web3 platform UI",
+        "description": "A user interface for interacting with a Web3 platform that automates blockchain transactions",
+        "githubUrl": "https://github.com/senyka0/web3-platform-ui",
+        "technologies": ["React", "TailwindCSS", "FastAPI", "Web3.py"],
+        "liveUrl": "https://senyka0.github.io/web3-platform-ui/"
+      },
+      {
+        "name": "Hello web3",
+        "description": "A simple web3 application for leaving messages on the blockchain",
+        "githubUrl": "https://github.com/senyka0/hello-web3",
+        "technologies": [
+          "React",
+          "TypeScript",
+          "TailwindCSS",
+          "ethers.js",
+          "Hardhat",
+          "Solidity"
+        ],
+        "liveUrl": "https://senyka0.github.io/hello-web3/"
+      },
+      {
+        "name": "Synthetic futures-options arbitrage",
+        "description": "A script for arbitrage trading between options and futures on Binance",
+        "githubUrl": "https://github.com/senyka0/synthetic-futures-arbitrage",
+        "technologies": ["Python", "Binance API", "pandas"]
+      },
+      {
+        "name": "GMX funding arbitrage bot",
+        "description": "A script for funding arbitrage on GMX",
+        "githubUrl": "https://github.com/senyka0/gmx-bot",
+        "technologies": [
+          "Node.js",
+          "TypeScript",
+          "Ethers.js",
+          "Telegram Bot API"
+        ]
+      },
+      {
+        "name": "GMGN solana sniper bot",
+        "description": "A script for sniper trading on GMGN solana",
+        "githubUrl": "https://github.com/senyka0/gmgn-sniper-bot",
+        "technologies": ["Node.js", "Solana", "Web3.js"]
+      }
+    ]
+  }
+}
