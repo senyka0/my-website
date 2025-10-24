@@ -142,32 +142,6 @@ cd frontend
 npm run deploy
 ```
 
-## 🎯 Key Components
-
-### **State Management Architecture**
-
-#### **Zustand Stores**
-
-- **Theme Store**: Manages light/dark theme with localStorage persistence
-- **UI Store**: Handles mobile menu state and UI interactions
-
-#### **React Query Hooks**
-
-- **usePortfolioData**: Fetches CV data from blockchain and IPFS
-- **Automatic Caching**: 30-minute stale time, 1-hour garbage collection
-- **Retry Logic**: 3 attempts with exponential backoff
-
-### **Component Structure**
-
-- **App.tsx**: Main application with error boundaries
-- **Navbar.tsx**: Responsive navigation with active section indicators
-- **Loader.tsx**: Theme-aware loading screen
-- **Home.tsx**: Hero section with personal information
-- **About.tsx**: Bio and personal description
-- **Skills.tsx**: Technical skills showcase
-- **Portfolio.tsx**: Project gallery
-- **Footer.tsx**: Blockchain information and links
-
 ## 🔧 Configuration
 
 ### **Smart Contract Address**
@@ -198,110 +172,16 @@ Update IPFS gateway in `frontend/src/hooks/useCVData.ts`:
 const response = await axios.get(`https://your-ipfs-gateway.com/ipfs/${hash}`);
 ```
 
-## 📱 Responsive Design
+### **CV Configuration**
 
-### **Breakpoints**
+Update your own data in `contracts/data/cv-data.json`.
 
-- **Mobile**: < 768px (hidden navbar, mobile menu)
-- **Tablet**: 768px - 1024px (responsive layout)
-- **Desktop**: > 1024px (full navigation)
+Replace CV pdf and picture with your own files in the `contracts/data` directory.
 
-### **Mobile Features**
+Create a `.env` file in the `contracts` directory with the following environment variables:
 
-- **Clean Interface**: No top navbar clutter
-- **Floating Menu Button**: Prominent white/dark circle
-- **Full-Screen Navigation**: Immersive mobile experience
-- **Touch Optimized**: Large touch targets and smooth animations
-
-## 🎨 Styling
-
-### **Tailwind CSS Classes**
-
-- **Utility First**: Rapid development with utility classes
-- **Custom Animations**: Fade-in effects and smooth transitions
-- **Theme Variables**: Consistent color scheme across components
-- **Responsive Design**: Mobile-first approach with breakpoint utilities
-
-### **Custom CSS**
-
-- **Scrollbar Hiding**: Cross-browser scrollbar removal
-- **Custom Animations**: Fade-in and scale effects
-- **Theme Transitions**: Smooth color transitions
-
-## 🚀 Deployment
-
-### **GitHub Pages**
-
-```bash
-npm run build
-npm run deploy
 ```
-
-### **Other Platforms**
-
-- **Vercel**: Connect GitHub repository
-- **Netlify**: Drag and drop build folder
-- **AWS S3**: Upload build folder to S3 bucket
-
-## 🔍 Performance
-
-### **Optimizations**
-
-- **Code Splitting**: Automatic with Create React App
-- **Image Optimization**: Optimized images and lazy loading
-- **Bundle Analysis**: `npm run build` shows bundle sizes
-- **Caching**: React Query provides intelligent caching
-
-### **Bundle Size**
-
-- **JavaScript**: ~175 KB (gzipped)
-- **CSS**: ~4.6 KB (gzipped)
-- **Total**: Optimized for fast loading
-
-## 🛡️ Security
-
-### **Best Practices**
-
-- **TypeScript**: Compile-time type checking
-- **ESLint**: Code quality and security linting
-- **Dependency Scanning**: Regular security updates
-- **HTTPS**: Secure data transmission
-
-## 🤝 Contributing
-
-### **Development Workflow**
-
-1. Fork the repository
-2. Create a feature branch
-3. Make your changes
-4. Test thoroughly
-5. Submit a pull request
-
-### **Code Standards**
-
-- **TypeScript**: Strict type checking enabled
-- **ESLint**: Follow configured linting rules
-- **Prettier**: Consistent code formatting
-- **Conventional Commits**: Clear commit messages
-
-## 📄 License
-
-This project is licensed under the ISC License - see the [LICENSE](LICENSE) file for details.
-
-## 🙏 Acknowledgments
-
-- **React Team** - Amazing framework
-- **Tailwind CSS** - Utility-first CSS framework
-- **Ethers.js** - Ethereum library
-- **IPFS** - Decentralized storage
-- **Base Network** - Fast and cheap transactions
-
-## 📞 Contact
-
-- **GitHub**: [@yourusername](https://github.com/yourusername)
-- **LinkedIn**: [Your LinkedIn](https://linkedin.com/in/yourprofile)
-- **Email**: your.email@example.com
-
----
-
-**Built with ❤️ using React, TypeScript, and Web3 technologies**
+PRIVATE_KEY=
+BASESCAN_API_KEY=
+PINATA_JWT=
+```
