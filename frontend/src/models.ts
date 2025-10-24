@@ -1,3 +1,11 @@
+export interface Project {
+  name: string;
+  description: string;
+  githubUrl: string;
+  technologies: string[];
+  liveUrl?: string;
+}
+
 export interface CV {
   photoUrl: string;
   name: string;
@@ -11,4 +19,5 @@ export interface CV {
   bio: string;
   location: string;
   linkCV: string;
+  projects: Project[];
 }
