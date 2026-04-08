@@ -13,7 +13,8 @@ import {
 async function fetchCVData(): Promise<CV> {
   const provider = new ethers.JsonRpcProvider(BASE_SEPOLIA_RPC_URL);
   const contract = new ethers.Contract(PORTFOLIO_CONTRACT_ADDRESS, STORE_ABI, provider);
-  const cvHash = await contract.cvHash();
+  const cvHashRaw = await contract.cvHash();
+  const cvHash = String(cvHashRaw).trim();
 
   if (!cvHash) {
     throw new Error('Contract returned an empty cvHash value.');

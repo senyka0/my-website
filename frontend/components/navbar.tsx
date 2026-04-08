@@ -55,6 +55,7 @@ export function Navbar({ cvData }: NavbarProps) {
       external: false,
     },
   ].filter((item) => Boolean(item.href));
+  const initials = `${cvData?.name?.[0] ?? 'A'}${cvData?.surname?.[0] ?? 'K'}`.toUpperCase();
 
   return (
     <>
@@ -73,9 +74,7 @@ export function Navbar({ cvData }: NavbarProps) {
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
               >
-                <span className="text-gradient">
-                  {cvData ? `${cvData.name.charAt(0)}${cvData.surname.charAt(0)}` : 'AK'}
-                </span>
+                <span className="text-gradient">{initials}</span>
               </motion.button>
               <div className="hidden items-center gap-1 md:flex">
                 {NAV_ITEMS.map((item) => (

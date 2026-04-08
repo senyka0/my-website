@@ -9,33 +9,37 @@ export function useActiveSection() {
   const [activeSection, setActiveSection] = useState<Section>('hero');
 
   useEffect(() => {
-    const observers: IntersectionObserver[] = [];
+    const sectionElements = SECTIONS.map((section) => ({
+      section,
+      element: document.getElementById(section),
+    })).filter((item): item is { section: Section; element: HTMLElement } => Boolean(item.element));
 
-    SECTIONS.forEach((section) => {
-      const element = document.getElementById(section);
-      if (!element) return;
+    if (!sectionElements.length) {
+      return;
+    }
 
-      const observer = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              setActiveSection(section);
-            }
-          });
-        },
-        {
-          rootMargin: '-50% 0px -50% 0px',
-          threshold: 0,
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const visible = entries
+          .filter((entry) => entry.isIntersecting)
+          .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
+
+        if (!visible.length) {
+          return;
         }
-      );
 
-      observer.observe(element);
-      observers.push(observer);
-    });
+        const currentId = visible[0].target.id as Section;
+        setActiveSection(currentId);
+      },
+      {
+        rootMargin: '-45% 0px -45% 0px',
+        threshold: [0.1, 0.25, 0.5, 0.75],
+      }
+    );
 
-    return () => {
-      observers.forEach((observer) => observer.disconnect());
-    };
+    sectionElements.forEach(({ element }) => observer.observe(element));
+
+    return () => observer.disconnect();
   }, []);
 
   return activeSection;
