@@ -1,8 +1,8 @@
-'use client';
+"use client";
 
-import { motion } from 'framer-motion';
-import { ExternalLink, Database, Server } from 'lucide-react';
-import { PORTFOLIO_CONTRACT_ADDRESS } from '@/lib/portfolio-config';
+import { motion } from "framer-motion";
+import { ExternalLink, Database, Server } from "lucide-react";
+import { PORTFOLIO_CONTRACT_ADDRESS } from "@/lib/portfolio-config";
 
 export function Footer() {
   const currentYear = new Date().getFullYear();

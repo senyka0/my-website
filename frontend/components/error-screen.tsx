@@ -1,8 +1,8 @@
-'use client';
+"use client";
 
-import { motion } from 'framer-motion';
-import { AlertTriangle, RefreshCw } from 'lucide-react';
-import { Button } from '@/components/ui/button';
+import { motion } from "framer-motion";
+import { AlertTriangle, RefreshCw } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 type ErrorScreenProps = {
   error: Error;
@@ -22,7 +22,7 @@ export function ErrorScreen({ error, onRetry }: ErrorScreenProps) {
         </div>
 
         <h2 className="mb-2 text-xl font-semibold">Something went wrong</h2>
-        
+
         <p className="mb-6 text-muted-foreground">
           Portfolio data could not be loaded. Check network access and retry.
         </p>

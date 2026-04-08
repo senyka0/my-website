@@ -19,6 +19,17 @@ export type CV = {
   bio: string;
   location: string;
   linkCV: string;
+  sectionContent: {
+    heroTagline: string;
+    aboutTitle: string;
+    aboutCardTitle: string;
+    aboutExtraParagraphOne: string;
+    aboutExtraParagraphTwo: string;
+    skillsTitle: string;
+    skillsSubtitle: string;
+    projectsTitle: string;
+    projectsSubtitle: string;
+  };
   projects: Project[];
 };
 

@@ -1,6 +1,6 @@
-'use client';
+"use client";
 
-import { motion } from 'framer-motion';
+import { motion } from "framer-motion";
 
 export function SkeletonLoader() {
   return (
@@ -59,7 +59,9 @@ export function SkeletonLoader() {
             <div className="h-2 w-2 animate-bounce rounded-full bg-primary [animation-delay:0ms]" />
             <div className="h-2 w-2 animate-bounce rounded-full bg-primary [animation-delay:150ms]" />
             <div className="h-2 w-2 animate-bounce rounded-full bg-primary [animation-delay:300ms]" />
-            <span className="ml-2 text-sm">Reading profile data from Base Sepolia...</span>
+            <span className="ml-2 text-sm">
+              Reading profile data from Base Sepolia...
+            </span>
           </div>
         </motion.div>
       </div>

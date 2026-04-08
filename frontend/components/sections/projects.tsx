@@ -1,8 +1,8 @@
-'use client';
+"use client";
 
-import { motion } from 'framer-motion';
-import { Github, ExternalLink, Folder } from 'lucide-react';
-import type { Project } from '@/lib/types';
+import { motion } from "framer-motion";
+import { Github, ExternalLink, Folder } from "lucide-react";
+import type { CV, Project } from "@/lib/types";
 
 type ProjectCardProps = {
   project: Project;
@@ -14,7 +14,7 @@ function ProjectCard({ project, index }: ProjectCardProps) {
     <motion.article
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: '-50px' }}
+      viewport={{ once: true, margin: "-50px" }}
       transition={{ duration: 0.5, delay: index * 0.1 }}
       whileHover={{ y: -8, transition: { duration: 0.3 } }}
       className="group glass rounded-2xl p-6 transition-all hover:border-primary/30 hover:shadow-lg hover:shadow-primary/5"
@@ -74,26 +74,27 @@ function ProjectCard({ project, index }: ProjectCardProps) {
 }
 
 type ProjectsProps = {
+  cvData?: CV;
   projects?: Project[];
 };
 
-export function Projects({ projects = [] }: ProjectsProps) {
+export function Projects({ cvData, projects = [] }: ProjectsProps) {
   return (
     <section id="projects" className="relative px-4 py-24 md:py-32">
       <div className="mx-auto max-w-6xl">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '-100px' }}
+          viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.6 }}
           className="mb-16 text-center"
         >
           <h2 className="mb-4 text-3xl font-bold md:text-4xl">
-            Featured <span className="text-gradient">Projects</span>
+            {cvData?.sectionContent?.projectsTitle}
           </h2>
           <div className="mx-auto h-1 w-20 rounded-full bg-gradient-to-r from-primary to-accent" />
           <p className="mt-6 text-muted-foreground">
-            Selected products, automation tools, and Web3 experiments shipped end-to-end
+            {cvData?.sectionContent?.projectsSubtitle}
           </p>
         </motion.div>
 

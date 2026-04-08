@@ -22,6 +22,17 @@
     "email": "arsk293@gmail.com",
     "bio": "I am a full-stack developer with a passion for building decentralized applications and trading systems. Skilled in blockchain, backend, and frontend technologies, I'm a fast learner dedicated to writing clean, scalable code and constantly improving my skills.",
     "location": "Loutraki, Greece",
+    "sectionContent": {
+      "heroTagline": "I build production-ready Web3 products with clean UX, robust backend systems, and practical smart contract integrations.",
+      "aboutTitle": "About Me",
+      "aboutCardTitle": "Who I Am",
+      "aboutExtraParagraphOne": "I care about readable architecture, reliable integrations, and shipping features that are useful in real-world trading and Web3 workflows.",
+      "aboutExtraParagraphTwo": "My default approach is simple: define a clear product goal, design a maintainable system, and iterate quickly with strong feedback loops.",
+      "skillsTitle": "Technical Skills",
+      "skillsSubtitle": "Technologies and tools I use to bring ideas to life",
+      "projectsTitle": "Featured Projects",
+      "projectsSubtitle": "Selected products, automation tools, and Web3 experiments shipped end-to-end"
+    },
     "projects": [
       {
         "name": "My website",

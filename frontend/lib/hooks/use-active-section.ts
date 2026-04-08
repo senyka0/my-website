@@ -1,18 +1,20 @@
-'use client';
+"use client";
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect } from "react";
 
-const SECTIONS = ['hero', 'about', 'skills', 'projects'] as const;
+const SECTIONS = ["hero", "about", "skills", "projects"] as const;
 export type Section = (typeof SECTIONS)[number];
 
 export function useActiveSection() {
-  const [activeSection, setActiveSection] = useState<Section>('hero');
+  const [activeSection, setActiveSection] = useState<Section>("hero");
 
   useEffect(() => {
     const sectionElements = SECTIONS.map((section) => ({
       section,
       element: document.getElementById(section),
-    })).filter((item): item is { section: Section; element: HTMLElement } => Boolean(item.element));
+    })).filter((item): item is { section: Section; element: HTMLElement } =>
+      Boolean(item.element),
+    );
 
     if (!sectionElements.length) {
       return;
@@ -32,9 +34,9 @@ export function useActiveSection() {
         setActiveSection(currentId);
       },
       {
-        rootMargin: '-45% 0px -45% 0px',
+        rootMargin: "-45% 0px -45% 0px",
         threshold: [0.1, 0.25, 0.5, 0.75],
-      }
+      },
     );
 
     sectionElements.forEach(({ element }) => observer.observe(element));

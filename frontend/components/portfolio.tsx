@@ -40,7 +40,7 @@ export function Portfolio() {
         <Hero cvData={cvData} />
         <About cvData={cvData} />
         <Skills cvData={cvData} />
-        <Projects projects={cvData?.projects} />
+        <Projects cvData={cvData} projects={cvData?.projects} />
       </main>
       <Footer />
     </>

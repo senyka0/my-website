@@ -6,7 +6,7 @@ Portfolio data is loaded from Base Sepolia and IPFS so the content source is dec
 ## Features
 
 - Next.js App Router frontend with reusable component structure
-- Dark and light theme with persisted state via Zustand
+- Single fixed visual theme with consistent styling
 - Animated modern UI using Framer Motion
 - CV data fetched on-chain from `Store.cvHash()` and resolved from IPFS
 - Loading skeleton, resilient retries, and error recovery UI
@@ -22,7 +22,6 @@ Portfolio data is loaded from Base Sepolia and IPFS so the content source is dec
 - Tailwind CSS v4
 - Framer Motion
 - TanStack Query
-- Zustand
 
 ### Blockchain
 
