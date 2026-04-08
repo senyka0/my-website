@@ -2,7 +2,16 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, Github, Linkedin, Mail, Download } from "lucide-react";
+import {
+  Menu,
+  X,
+  Github,
+  Linkedin,
+  Mail,
+  Download,
+  BriefcaseBusiness,
+  Send,
+} from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useActiveSection, type Section } from "@/lib/hooks/use-active-section";
 import type { CV } from "@/lib/types";
@@ -43,6 +52,20 @@ export function Navbar({ cvData }: NavbarProps) {
       href: cvData?.linkedInUrl,
       label: "LinkedIn",
       icon: Linkedin,
+      external: true,
+    },
+    {
+      id: "upwork",
+      href: cvData?.upworkUrl,
+      label: "Upwork",
+      icon: BriefcaseBusiness,
+      external: true,
+    },
+    {
+      id: "telegram",
+      href: cvData?.telegramUrl,
+      label: "Telegram",
+      icon: Send,
       external: true,
     },
     {

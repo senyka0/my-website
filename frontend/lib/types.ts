@@ -15,6 +15,8 @@ export type CV = {
   skills: string[];
   gitHubUrl: string;
   linkedInUrl: string;
+  upworkUrl?: string;
+  telegramUrl?: string;
   email: string;
   bio: string;
   location: string;
