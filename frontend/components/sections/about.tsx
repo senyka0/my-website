@@ -66,6 +66,10 @@ export function About({ cvData }: AboutProps) {
                 I care about readable architecture, reliable integrations, and shipping features
                 that are useful in real-world trading and Web3 workflows.
               </p>
+              <p className="mt-4 leading-relaxed text-muted-foreground">
+                My default approach is simple: define a clear product goal, design a maintainable
+                system, and iterate quickly with strong feedback loops.
+              </p>
             </div>
           </motion.div>
           <motion.div

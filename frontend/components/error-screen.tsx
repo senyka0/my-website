@@ -24,8 +24,7 @@ export function ErrorScreen({ error, onRetry }: ErrorScreenProps) {
         <h2 className="mb-2 text-xl font-semibold">Something went wrong</h2>
         
         <p className="mb-6 text-muted-foreground">
-          We couldn&apos;t load the portfolio data. This might be due to network issues or 
-          the blockchain being temporarily unavailable.
+          Portfolio data could not be loaded. Check network access and retry.
         </p>
 
         <div className="mb-6 rounded-lg bg-muted/50 p-3">

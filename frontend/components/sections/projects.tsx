@@ -93,7 +93,7 @@ export function Projects({ projects = [] }: ProjectsProps) {
           </h2>
           <div className="mx-auto h-1 w-20 rounded-full bg-gradient-to-r from-primary to-accent" />
           <p className="mt-6 text-muted-foreground">
-            A selection of my recent work and personal projects
+            Selected products, automation tools, and Web3 experiments shipped end-to-end
           </p>
         </motion.div>
 
