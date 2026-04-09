@@ -1,5 +1,9 @@
 {
   "name": "hardhat-project",
+  "scripts": {
+    "deploy": "npx hardhat run scripts/deploy.ts --network baseSepolia",
+    "update": "npx hardhat run scripts/update-cv-hash.ts --network baseSepolia"
+  },
   "devDependencies": {
     "@nomicfoundation/hardhat-toolbox": "^5.0.0",
     "hardhat": "^2.22.0"

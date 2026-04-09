@@ -2,7 +2,7 @@
   "cv": {
     "name": "Arsenii",
     "surname": "Koniachenko",
-    "position": "Full-Stack Blockchain Developer",
+    "position": "Full-Stack Developer (Next.js + FastAPI) with Blockchain Background",
     "skills": [
       "python",
       "nodejs",
@@ -12,8 +12,14 @@
       "nextjs",
       "fastapi",
       "express",
+      "playwright",
+      "selenium",
+      "beautifulsoup",
+      "web scraping",
       "postgresql",
       "mongodb",
+      "redis",
+      "rabbitmq",
       "docker",
       "git"
     ],
@@ -22,50 +28,116 @@
     "upworkUrl": "https://www.upwork.com/freelancers/~016aa6b28e2527c924",
     "telegramUrl": "https://t.me/senyka0",
     "email": "arsk293@gmail.com",
-    "bio": "I am a full-stack developer with a passion for building decentralized applications and trading systems. Skilled in blockchain, backend, and frontend technologies, I'm a fast learner dedicated to writing clean, scalable code and constantly improving my skills.",
+    "bio": "I am a full-stack developer focused on building production web products with Next.js and FastAPI. I combine strong frontend and backend engineering with blockchain experience, plus hands-on work in browser automation and data parsing using Playwright, Selenium, and Python tooling.",
     "location": "Loutraki, Greece",
     "sectionContent": {
-      "heroTagline": "I build production-ready Web3 products with clean UX, robust backend systems, and practical smart contract integrations.",
+      "heroTagline": "I build production-ready products with Next.js and FastAPI, Web3 applications, browser automation.",
       "aboutTitle": "About Me",
       "aboutCardTitle": "Who I Am",
-      "aboutExtraParagraphOne": "I care about readable architecture, reliable integrations, and shipping features that are useful in real-world trading and Web3 workflows.",
-      "aboutExtraParagraphTwo": "My default approach is simple: define a clear product goal, design a maintainable system, and iterate quickly with strong feedback loops.",
+      "aboutExtraParagraphOne": "I care about readable architecture, reliable integrations, and shipping features that create measurable product value across frontend, backend, and automation workflows.",
+      "aboutExtraParagraphTwo": "My core stack is Next.js + FastAPI, and I complement it with blockchain integrations, browser automation, and parsing pipelines to solve real business tasks end-to-end.",
+      "aboutHighlights": [
+        {
+          "title": "Next.js Frontend Engineering",
+          "description": "Responsive interfaces, component systems, and SEO-friendly product pages"
+        },
+        {
+          "title": "FastAPI Backend Development",
+          "description": "REST APIs, async services, data models, and production integrations"
+        },
+        {
+          "title": "Blockchain Integration",
+          "description": "Smart contracts, wallet flows, and decentralized data using EVM tooling"
+        },
+        {
+          "title": "Automation & Parsing",
+          "description": "Browser automation and web parsing with Playwright, Selenium, and Python"
+        }
+      ],
       "skillsTitle": "Technical Skills",
       "skillsSubtitle": "Technologies and tools I use to bring ideas to life",
       "projectsTitle": "Featured Projects",
-      "projectsSubtitle": "Selected products, automation tools, and Web3 experiments shipped end-to-end"
+      "projectsSubtitle": "Selected Next.js + FastAPI products, blockchain builds, and automation/parsing projects shipped end-to-end"
     },
     "projects": [
       {
-        "name": "My website",
-        "description": "A fully decentralized portfolio website with data stored on IPFS and smart contract on Base Sepolia",
+        "name": "Decentralized Portfolio Website",
+        "description": "A modern portfolio built with Next.js, TypeScript, and Tailwind CSS. Portfolio content is delivered from Base Sepolia and IPFS to keep the data layer decentralized.",
         "githubUrl": "https://github.com/senyka0/my-website",
         "technologies": [
-          "React",
+          "Next.js",
+          "TailwindCSS",
+          "TypeScript",
+          "Hardhat",
+          "Solidity",
+          "Ethers.js"
+        ],
+        "liveUrl": "https://www.senyka0.cfd/"
+      },
+      {
+        "name": "Resume Match",
+        "description": "Full-stack platform for vacancy search and resume tailoring with a Next.js frontend and FastAPI backend services.",
+        "githubUrl": "https://github.com/senyka0/resume-match",
+        "technologies": [
+          "Next.js",
           "TypeScript",
           "TailwindCSS",
-          "React Query",
-          "Zustand",
-          "IPFS",
-          "ethers.js",
-          "Hardhat",
-          "Solidity"
+          "FastAPI",
+          "TinyDB",
+          "Docker"
         ],
-        "liveUrl": "https://senyka0.github.io/my-website/"
+        "liveUrl": "https://resume-match.xyz/"
       },
       {
-        "name": "Hedge fund landing",
+        "name": "SyncWalk",
+        "description": "A full-stack audio tour platform with solo and synchronized group listening, built with Next.js, FastAPI, WebSockets, and Redis.",
+        "githubUrl": "https://github.com/senyka0/sync-walk",
+        "technologies": [
+          "Next.js",
+          "TypeScript",
+          "TailwindCSS",
+          "FastAPI",
+          "Socket.IO",
+          "Redis",
+          "PostgreSQL",
+          "Docker"
+        ],
+        "liveUrl": "https://sync-walk.sbs/"
+      },
+      {
+        "name": "Algo Zeus Landing",
         "description": "A landing page for a hedge fund with chart and live metrics",
-        "githubUrl": "https://github.com/senyka0/hedge-fund-landing",
-        "technologies": ["Next.js", "TypeScript", "TailwindCSS", "tremor"],
-        "liveUrl": "https://senyka0.github.io/hedge-fund-landing"
+        "githubUrl": "https://github.com/senyka0/algo-zeus-landing",
+        "technologies": ["Next.js", "TypeScript", "TailwindCSS"],
+        "liveUrl": "https://algo-zeus-landing.vercel.app/"
       },
       {
-        "name": "Web3 platform UI",
-        "description": "A user interface for interacting with a Web3 platform that automates blockchain transactions",
-        "githubUrl": "https://github.com/senyka0/web3-platform-ui",
-        "technologies": ["React", "TailwindCSS", "FastAPI", "Web3.py"],
-        "liveUrl": "https://senyka0.github.io/web3-platform-ui/"
+        "name": "Status LTD",
+        "description": "Marketing site for Status LTD — pharmaceutical-grade aluminum crimp caps. Built with Next.js (App Router), React, TypeScript, and Tailwind CSS.",
+        "githubUrl": "https://github.com/senyka0/status-ltd",
+        "technologies": ["Next.js", "TypeScript", "TailwindCSS", "App Router"],
+        "liveUrl": "https://status-ltd.vercel.app/en"
+      },
+      {
+        "name": "True Price",
+        "description": "Marketing website for the True Price restaurant network, built with Next.js and TypeScript.",
+        "githubUrl": "https://github.com/senyka0/true-price",
+        "technologies": ["Next.js", "TypeScript", "TailwindCSS", "App Router"],
+        "liveUrl": "https://true-price-restaurants.vercel.app/"
+      },
+      {
+        "name": "Gold Line Barbershop",
+        "description": "Marketing website for Gold Line Barbershop built with Next.js, TypeScript, and Tailwind CSS.",
+        "githubUrl": "https://github.com/senyka0/gold-line",
+        "technologies": ["Next.js", "TypeScript", "TailwindCSS", "App Router"],
+        "liveUrl": "https://gold-line.vercel.app/"
+      },
+      {
+        "name": "Blush Nail Studio",
+        "description": "Marketing site for a New York City nail studio built with Next.js and TypeScript.",
+        "githubUrl": "https://github.com/senyka0/blush-nail-studio",
+        "technologies": ["Next.js", "TypeScript", "TailwindCSS", "App Router"],
+        "liveUrl": "https://blush-nail-studio.vercel.app/"
       },
       {
         "name": "Hello web3",
@@ -83,13 +155,13 @@
       },
       {
         "name": "Synthetic futures-options arbitrage",
-        "description": "A script for arbitrage trading between options and futures on Binance",
+        "description": "Python automation script for arbitrage analysis between options and futures on Binance, including market data parsing.",
         "githubUrl": "https://github.com/senyka0/synthetic-futures-arbitrage",
         "technologies": ["Python", "Binance API", "pandas"]
       },
       {
         "name": "GMX funding arbitrage bot",
-        "description": "A script for funding arbitrage on GMX",
+        "description": "TypeScript automation bot for funding arbitrage on GMX with on-chain data handling and Telegram notifications.",
         "githubUrl": "https://github.com/senyka0/gmx-bot",
         "technologies": [
           "Node.js",
@@ -100,7 +172,7 @@
       },
       {
         "name": "GMGN solana sniper bot",
-        "description": "A script for sniper trading on GMGN solana",
+        "description": "Node.js automation bot for Solana sniper workflows on GMGN with real-time monitoring logic.",
         "githubUrl": "https://github.com/senyka0/gmgn-sniper-bot",
         "technologies": ["Node.js", "Solana", "Web3.js"]
       }

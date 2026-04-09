@@ -4,31 +4,7 @@ import { motion } from "framer-motion";
 import { Code2, Blocks, Cpu, Zap } from "lucide-react";
 import type { CV } from "@/lib/types";
 
-const HIGHLIGHTS = [
-  {
-    icon: Blocks,
-    title: "Web3 Development",
-    description:
-      "Smart contracts, DeFi protocols, and decentralized applications",
-  },
-  {
-    icon: Code2,
-    title: "Full-Stack Apps",
-    description:
-      "End-to-end solutions with modern frameworks and best practices",
-  },
-  {
-    icon: Cpu,
-    title: "Blockchain Integration",
-    description: "Seamless integration with multiple blockchain networks",
-  },
-  {
-    icon: Zap,
-    title: "Automation",
-    description:
-      "Efficient workflows, CI/CD pipelines, and process optimization",
-  },
-];
+const HIGHLIGHT_ICONS = [Blocks, Code2, Cpu, Zap];
 
 type AboutProps = {
   cvData?: CV;
@@ -80,7 +56,10 @@ export function About({ cvData }: AboutProps) {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="grid gap-4 sm:grid-cols-2"
           >
-            {HIGHLIGHTS.map((highlight, index) => (
+            {(cvData?.sectionContent?.aboutHighlights ?? []).map(
+              (highlight, index) => {
+                const Icon = HIGHLIGHT_ICONS[index % HIGHLIGHT_ICONS.length];
+                return (
               <motion.div
                 key={highlight.title}
                 initial={{ opacity: 0, y: 20 }}
@@ -91,14 +70,16 @@ export function About({ cvData }: AboutProps) {
                 className="glass group rounded-xl p-5 transition-colors hover:border-primary/30"
               >
                 <div className="mb-3 inline-flex rounded-lg bg-primary/10 p-2.5 text-primary transition-colors group-hover:bg-primary/20">
-                  <highlight.icon className="h-5 w-5" />
+                  <Icon className="h-5 w-5" />
                 </div>
                 <h4 className="mb-1 font-semibold">{highlight.title}</h4>
                 <p className="text-sm text-muted-foreground">
                   {highlight.description}
                 </p>
               </motion.div>
-            ))}
+                );
+              },
+            )}
           </motion.div>
         </div>
       </div>

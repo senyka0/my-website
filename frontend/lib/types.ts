@@ -31,6 +31,10 @@ export type CV = {
     skillsSubtitle: string;
     projectsTitle: string;
     projectsSubtitle: string;
+    aboutHighlights: {
+      title: string;
+      description: string;
+    }[];
   };
   projects: Project[];
 };
