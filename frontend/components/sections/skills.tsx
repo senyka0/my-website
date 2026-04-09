@@ -6,7 +6,7 @@ import type { CV } from "@/lib/types";
 const SKILL_CATEGORIES: Record<string, string[]> = {
   Frontend: [
     "React",
-    "Next.js",
+    "Nextjs",
     "TypeScript",
     "JavaScript",
     "HTML",
@@ -27,6 +27,7 @@ const SKILL_CATEGORIES: Record<string, string[]> = {
     "PostgreSQL",
     "MongoDB",
     "Redis",
+    "RabbitMQ",
   ],
   Blockchain: [
     "Solidity",
@@ -48,6 +49,8 @@ const SKILL_CATEGORIES: Record<string, string[]> = {
     "Linux",
     "Figma",
     "Testing",
+    "Playwright",
+    "Selenium",
   ],
 };
 
@@ -92,7 +95,6 @@ export function Skills({ cvData }: SkillsProps) {
     "Backend",
     "Blockchain",
     "Tools",
-    "Other",
   ].filter((cat) => groupedSkills[cat]?.length);
 
   return (
@@ -139,17 +141,32 @@ export function Skills({ cvData }: SkillsProps) {
                 </h3>
                 <div className="flex flex-wrap gap-2">
                   {groupedSkills[category].map((skill, skillIndex) => (
-                    <motion.span
+                    <motion.div
                       key={skill}
                       initial={{ opacity: 0, scale: 0.8 }}
                       whileInView={{ opacity: 1, scale: 1 }}
                       viewport={{ once: true }}
                       transition={{ duration: 0.3, delay: 0.05 * skillIndex }}
                       whileHover={{ scale: 1.05, y: -2 }}
-                      className="rounded-lg bg-muted px-3 py-1.5 text-sm font-medium text-foreground transition-colors hover:bg-primary/20 hover:text-primary"
+                      className="flex h-11 w-11 items-center justify-center rounded-lg bg-muted p-2 transition-colors hover:bg-primary/20"
+                      title={skill}
                     >
-                      {skill}
-                    </motion.span>
+                      <img
+                        src={`https://cdn.jsdelivr.net/gh/devicons/devicon/icons/${skill}/${skill}-original.svg`}
+                        alt={skill}
+                        className="h-6 w-6"
+                        loading="lazy"
+                        onError={(event) => {
+                          const target = event.currentTarget;
+                          if (target.dataset.fallbackTried === "true") {
+                            target.style.display = "none";
+                            return;
+                          }
+                          target.dataset.fallbackTried = "true";
+                          target.src = `https://cdn.jsdelivr.net/gh/devicons/devicon/icons/${skill}/${skill}-plain.svg`;
+                        }}
+                      />
+                    </motion.div>
                   ))}
                 </div>
               </motion.div>
