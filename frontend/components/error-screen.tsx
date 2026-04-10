@@ -1,6 +1,5 @@
 "use client";
 
-import { motion } from "framer-motion";
 import { AlertTriangle, RefreshCw } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
@@ -12,11 +11,7 @@ type ErrorScreenProps = {
 export function ErrorScreen({ error, onRetry }: ErrorScreenProps) {
   return (
     <div className="flex min-h-screen items-center justify-center px-4">
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        className="glass max-w-md rounded-2xl p-8 text-center"
-      >
+      <div className="glass max-w-md rounded-2xl p-8 text-center">
         <div className="mx-auto mb-6 inline-flex rounded-full bg-destructive/10 p-4">
           <AlertTriangle className="h-8 w-8 text-destructive" />
         </div>
@@ -37,7 +32,7 @@ export function ErrorScreen({ error, onRetry }: ErrorScreenProps) {
           <RefreshCw className="h-4 w-4" />
           Try Again
         </Button>
-      </motion.div>
+      </div>
     </div>
   );
 }

@@ -1,24 +1,16 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import { Github, ExternalLink, Folder } from "lucide-react";
 import type { CV, Project } from "@/lib/types";
 
 type ProjectCardProps = {
   project: Project;
-  index: number;
 };
 
-function ProjectCard({ project, index }: ProjectCardProps) {
+function ProjectCard({ project }: ProjectCardProps) {
   return (
-    <motion.article
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-50px" }}
-      transition={{ duration: 0.5, delay: index * 0.1 }}
-      whileHover={{ y: -8, transition: { duration: 0.3 } }}
-      className="group glass rounded-2xl p-6 transition-all hover:border-primary/30 hover:shadow-lg hover:shadow-primary/5"
-    >
+    <article className="group glass rounded-2xl p-6 transition-all hover:border-primary/30 hover:shadow-lg hover:shadow-primary/5 md:hover:-translate-y-2">
       <div className="mb-4 flex items-start justify-between">
         <div className="rounded-lg bg-primary/10 p-2.5 text-primary">
           <Folder className="h-5 w-5" />
@@ -69,7 +61,7 @@ function ProjectCard({ project, index }: ProjectCardProps) {
           </span>
         )}
       </div>
-    </motion.article>
+    </article>
   );
 }
 
@@ -79,16 +71,21 @@ type ProjectsProps = {
 };
 
 export function Projects({ cvData, projects = [] }: ProjectsProps) {
+  const shouldReduceMotion = useReducedMotion();
+
+  const fadeInView = shouldReduceMotion
+    ? {}
+    : {
+        initial: { opacity: 0, y: 15 },
+        whileInView: { opacity: 1, y: 0 },
+        viewport: { once: true, margin: "-50px" },
+        transition: { duration: 0.4 },
+      };
+
   return (
     <section id="projects" className="relative px-4 py-24 md:py-32">
       <div className="mx-auto max-w-6xl">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.6 }}
-          className="mb-16 text-center"
-        >
+        <motion.div {...fadeInView} className="mb-16 text-center">
           <h2 className="mb-4 text-3xl font-bold md:text-4xl">
             {cvData?.sectionContent?.projectsTitle}
           </h2>
@@ -99,21 +96,19 @@ export function Projects({ cvData, projects = [] }: ProjectsProps) {
         </motion.div>
 
         {projects.length === 0 ? (
-          <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            className="glass rounded-2xl p-8 text-center"
-          >
+          <div className="glass rounded-2xl p-8 text-center">
             <Folder className="mx-auto mb-4 h-12 w-12 text-muted-foreground" />
             <p className="text-muted-foreground">Loading projects...</p>
-          </motion.div>
-        ) : (
-          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {projects.map((project, index) => (
-              <ProjectCard key={project.name} project={project} index={index} />
-            ))}
           </div>
+        ) : (
+          <motion.div
+            {...fadeInView}
+            className="grid gap-6 md:grid-cols-2 lg:grid-cols-3"
+          >
+            {projects.map((project) => (
+              <ProjectCard key={project.name} project={project} />
+            ))}
+          </motion.div>
         )}
       </div>
     </section>

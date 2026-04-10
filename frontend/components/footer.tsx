@@ -1,6 +1,5 @@
 "use client";
 
-import { motion } from "framer-motion";
 import { ExternalLink, Database, Server } from "lucide-react";
 import { PORTFOLIO_CONTRACT_ADDRESS } from "@/lib/portfolio-config";
 
@@ -11,13 +10,7 @@ export function Footer() {
   return (
     <footer className="relative px-4 py-12 md:py-16">
       <div className="mx-auto max-w-6xl">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="glass rounded-2xl p-6 md:p-8"
-        >
+        <div className="glass rounded-2xl p-6 md:p-8">
           <div className="mb-6 flex flex-wrap items-center justify-center gap-4 text-sm text-muted-foreground">
             <div className="flex items-center gap-2">
               <Server className="h-4 w-4 text-primary" />
@@ -57,7 +50,7 @@ export function Footer() {
               <span>Decentralized & Immutable</span>
             </div>
           </div>
-        </motion.div>
+        </div>
       </div>
     </footer>
   );

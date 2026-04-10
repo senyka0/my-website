@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
 import {
   Menu,
   X,
@@ -30,6 +30,7 @@ type NavbarProps = {
 export function Navbar({ cvData }: NavbarProps) {
   const [isOpen, setIsOpen] = useState(false);
   const activeSection = useActiveSection();
+  const shouldReduceMotion = useReducedMotion();
 
   const scrollTo = (id: string) => {
     const element = document.getElementById(id);
@@ -82,22 +83,20 @@ export function Navbar({ cvData }: NavbarProps) {
   return (
     <>
       <motion.nav
-        initial={{ y: -100, opacity: 0 }}
+        initial={shouldReduceMotion ? false : { y: -20, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.6, ease: "easeOut" }}
+        transition={shouldReduceMotion ? undefined : { duration: 0.3 }}
         className="fixed top-0 left-0 right-0 z-50 px-4 py-4"
       >
         <div className="mx-auto max-w-6xl">
           <div className="glass-strong rounded-2xl px-4 py-3 md:px-6">
             <div className="flex items-center justify-between">
-              <motion.button
+              <button
                 onClick={() => scrollTo("hero")}
-                className="text-lg font-semibold tracking-tight"
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
+                className="text-lg font-semibold tracking-tight transition-transform active:scale-95"
               >
                 <span className="text-gradient">{initials}</span>
-              </motion.button>
+              </button>
               <div className="hidden items-center gap-1 md:flex">
                 {NAV_ITEMS.map((item) => (
                   <button
@@ -113,7 +112,7 @@ export function Navbar({ cvData }: NavbarProps) {
                       <motion.div
                         layoutId="activeSection"
                         className="absolute inset-0 rounded-lg bg-muted"
-                        transition={{ type: "spring", duration: 0.5 }}
+                        transition={shouldReduceMotion ? { duration: 0 } : { type: "spring", duration: 0.4, bounce: 0.15 }}
                       />
                     )}
                     <span className="relative z-10">{item.label}</span>
@@ -178,21 +177,13 @@ export function Navbar({ cvData }: NavbarProps) {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-40 bg-background/95 backdrop-blur-xl md:hidden"
+            transition={{ duration: 0.15 }}
+            className="fixed inset-0 z-40 bg-background/95 backdrop-blur-md md:hidden"
           >
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: 20 }}
-              transition={{ delay: 0.1 }}
-              className="flex h-full flex-col items-center justify-center gap-8"
-            >
-              {NAV_ITEMS.map((item, index) => (
-                <motion.button
+            <div className="flex h-full flex-col items-center justify-center gap-8">
+              {NAV_ITEMS.map((item) => (
+                <button
                   key={item.href}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.15 + index * 0.05 }}
                   onClick={() => scrollTo(item.href)}
                   className={`text-3xl font-medium transition-colors ${
                     activeSection === item.href
@@ -201,15 +192,10 @@ export function Navbar({ cvData }: NavbarProps) {
                   }`}
                 >
                   {item.label}
-                </motion.button>
+                </button>
               ))}
 
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.35 }}
-                className="flex items-center gap-4 pt-8"
-              >
+              <div className="flex items-center gap-4 pt-8">
                 {socials.map((item) => (
                   <Button key={item.id} variant="outline" size="icon" asChild>
                     <a
@@ -222,27 +208,21 @@ export function Navbar({ cvData }: NavbarProps) {
                     </a>
                   </Button>
                 ))}
-              </motion.div>
+              </div>
 
               {cvData?.linkCV && (
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.4 }}
-                >
-                  <Button asChild size="lg">
-                    <a
-                      href={cvData.linkCV}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      <Download className="mr-2 h-5 w-5" />
-                      Download CV
-                    </a>
-                  </Button>
-                </motion.div>
+                <Button asChild size="lg">
+                  <a
+                    href={cvData.linkCV}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <Download className="mr-2 h-5 w-5" />
+                    Download CV
+                  </a>
+                </Button>
               )}
-            </motion.div>
+            </div>
           </motion.div>
         )}
       </AnimatePresence>
