@@ -9,39 +9,51 @@ export function useActiveSection() {
   const [activeSection, setActiveSection] = useState<Section>("hero");
 
   useEffect(() => {
-    const sectionElements = SECTIONS.map((section) => ({
-      section,
-      element: document.getElementById(section),
-    })).filter((item): item is { section: Section; element: HTMLElement } =>
-      Boolean(item.element),
+    const sectionElements = SECTIONS.map((section) => {
+      const element = document.getElementById(section);
+      return element ? { section, element } : null;
+    }).filter(
+      (item): item is { section: Section; element: HTMLElement } =>
+        item !== null,
     );
 
     if (!sectionElements.length) {
       return;
     }
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        const visible = entries
-          .filter((entry) => entry.isIntersecting)
-          .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
+    const updateActiveSection = () => {
+      const viewportHeight = window.innerHeight;
+      const scrollBottom = window.scrollY + viewportHeight;
+      const documentHeight = document.documentElement.scrollHeight;
 
-        if (!visible.length) {
-          return;
+      if (scrollBottom >= documentHeight - 4) {
+        setActiveSection(sectionElements[sectionElements.length - 1].section);
+        return;
+      }
+
+      const probeY = viewportHeight * 0.35;
+      let current: Section = sectionElements[0].section;
+
+      for (const { section, element } of sectionElements) {
+        const rect = element.getBoundingClientRect();
+        if (rect.top <= probeY) {
+          current = section;
+        } else {
+          break;
         }
+      }
 
-        const currentId = visible[0].target.id as Section;
-        setActiveSection(currentId);
-      },
-      {
-        rootMargin: "-45% 0px -45% 0px",
-        threshold: [0.1, 0.25, 0.5, 0.75],
-      },
-    );
+      setActiveSection(current);
+    };
 
-    sectionElements.forEach(({ element }) => observer.observe(element));
+    updateActiveSection();
+    window.addEventListener("scroll", updateActiveSection, { passive: true });
+    window.addEventListener("resize", updateActiveSection);
 
-    return () => observer.disconnect();
+    return () => {
+      window.removeEventListener("scroll", updateActiveSection);
+      window.removeEventListener("resize", updateActiveSection);
+    };
   }, []);
 
   return activeSection;
